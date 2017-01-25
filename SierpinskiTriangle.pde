@@ -10,7 +10,7 @@ public void setup()
 public void draw()
 {
 	background(0);
-	sierpinski(50, 550, 500);
+	sierpinski(25, 575, 550);
 }
 
 
@@ -19,7 +19,7 @@ public void draw()
 
 public void mouseDragged()//optional
 {
-
+	
 }
 
 
@@ -28,16 +28,25 @@ public void mouseDragged()//optional
 
 public void sierpinski(int x, int y, int len) 
 {
-	if ( len <= 490 )
+	if ( len < 10 )
 	{
+		fill(255);
 		noStroke();
 		triangle(x, y, x + len, y, x + len/2, y - len);
 	}
 
 	else 
 	{
+		
 		sierpinski(x, y, len/2);
 		sierpinski(x+len/2, y, len/2);
 		sierpinski(x+len/4, y-len/2, len/2);
+		fill(255);
+		ellipse(x+len/2, y-len/3, len/4, len/4);
+		fill(0);
+		ellipse(x+len/2, y-len/3, len/4, len/8);
+		fill(255);
+		ellipse(x+len/2, y-len/3, len/24, len/16);
+		
 	}
 }
